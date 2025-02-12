@@ -1,0 +1,3 @@
+/home/alfredo/Desktop/Lie-Alg/build/CMakeFiles/LIE-ALG.dir
+/home/alfredo/Desktop/Lie-Alg/build/CMakeFiles/edit_cache.dir
+/home/alfredo/Desktop/Lie-Alg/build/CMakeFiles/rebuild_cache.dir
