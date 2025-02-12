@@ -22,15 +22,12 @@ int main() {
                 DifferentialForm dform = form.exteriorDerivative();
 
                 if(!dform.checkZero()){
-                    outfile << "Original form: ";
                     std::string latexString = form.toLatexString();
-                    outfile << latexString << "\t\t";
-                    //form.print();
-
-                    outfile << "Exterior derivative: ";
                     std::string dlatexString = dform.toLatexString();
-                    outfile << dlatexString << "\n\n";
 
+                    outfile << "$d("<<latexString<<")  = " << dlatexString << "$\n\n";
+
+                    //form.print();
                     //dform.print();
                 }
             }

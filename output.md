@@ -1,10 +1,10 @@
-Original form: $1 \cdot e^{ 234}$		Exterior derivative: $(-1) \cdot e^{ 1235}$
+$d(e^{ 234})  = (-1)e^{ 1235}$
 
-Original form: $1 \cdot e^{ 246}$		Exterior derivative: $1 \cdot e^{ 1234} + (-1) \cdot e^{ 1256}$
+$d(e^{ 246})  = e^{ 1234} + (-1)e^{ 1256}$
 
-Original form: $1 \cdot e^{ 256}$		Exterior derivative: $1 \cdot e^{ 1235}$
+$d(e^{ 256})  = e^{ 1235}$
 
-Original form: $1 \cdot e^{ 346}$		Exterior derivative: $(-1) \cdot e^{ 1356}$
+$d(e^{ 346})  = (-1)e^{ 1356}$
 
-Original form: $1 \cdot e^{ 456}$		Exterior derivative: $(-1) \cdot e^{ 1345}$
+$d(e^{ 456})  = (-1)e^{ 1345}$
 

@@ -77,7 +77,7 @@ public:
 
     std::string toLatexString() const {
         std::stringstream ss;
-        ss << "$";  // Start LaTeX math mode
+        //ss << "$";  // Start LaTeX math mode
         
         bool firstTerm = true;
         // Loop over each term in the differential form.
@@ -92,12 +92,12 @@ public:
             // Print the coefficient.
             if(coeff<0)
                 ss << '(' << coeff << ')';
-            else
+            else if (coeff != 1)
                 ss << coeff;
             
             // If there are basis elements, print them in the form e^{i1} \wedge e^{i2} \wedge ...
             if (!indices.empty()) {
-                ss << " \\cdot ";
+                //ss << " \\cdot ";
                 std::string index = " ";
                 for (size_t i = 0; i < indices.size(); ++i) {
                     
@@ -113,7 +113,7 @@ public:
             
             firstTerm = false;
         }
-        ss << "$";  // End LaTeX math mode
+        //ss << "$";  // End LaTeX math mode
         
         return ss.str();
     }
