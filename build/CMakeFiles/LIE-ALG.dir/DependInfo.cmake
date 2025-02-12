@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/alfredo/Desktop/Lie-Alg/DifferentialForm.cpp" "CMakeFiles/LIE-ALG.dir/DifferentialForm.cpp.o" "gcc" "CMakeFiles/LIE-ALG.dir/DifferentialForm.cpp.o.d"
-  "/home/alfredo/Desktop/Lie-Alg/main.cpp" "CMakeFiles/LIE-ALG.dir/main.cpp.o" "gcc" "CMakeFiles/LIE-ALG.dir/main.cpp.o.d"
+  "/home/alfredo/Desktop/Lie-Alg/src/DifferentialForm.cpp" "CMakeFiles/LIE-ALG.dir/src/DifferentialForm.cpp.o" "gcc" "CMakeFiles/LIE-ALG.dir/src/DifferentialForm.cpp.o.d"
+  "/home/alfredo/Desktop/Lie-Alg/src/main.cpp" "CMakeFiles/LIE-ALG.dir/src/main.cpp.o" "gcc" "CMakeFiles/LIE-ALG.dir/src/main.cpp.o.d"
   "" "LIE-ALG" "gcc" "CMakeFiles/LIE-ALG.dir/link.d"
   )
 

@@ -3,13 +3,14 @@ cmake_minimum_required (VERSION 3.29)
 project(LIE-ALG VERSION 0.1.0)
 
 file(GLOB project_sources
- "*.cpp"
+ "src/*.cpp"
 )
 
-file(GLOB project_headers
- "*.h"
-)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 add_executable(${PROJECT_NAME} ${project_sources})
 
-target_sources(${PROJECT_NAME} PRIVATE ${project_headers})
+if(EXISTS "${PROJECT_SOURCE_DIR}/test/CMakeLists.txt")
+    enable_testing()
+    add_subdirectory(test)
+endif()

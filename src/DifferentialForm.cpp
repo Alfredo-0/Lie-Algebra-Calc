@@ -1,5 +1,5 @@
-// DifferentialForm.cpp (continued)
-#include "LieAlgebra.h"
+// DifferentialForm.cpp
+#include "Lie-Alg/LieAlgebra.h"
 
 static int permutationSign(const std::vector<int>& original, const std::vector<int>& sorted) {
     // A simple (but not optimal) method: compute the number of transpositions
@@ -101,3 +101,27 @@ DifferentialForm DifferentialForm::exteriorDerivative() const {
     
     return result;
 }
+
+void DifferentialForm::print() const {
+    for (auto term = terms.begin(); term != terms.end(); ++term) {
+        double coeff = term->second;
+        const std::vector<int>& indices = term->first;
+        
+        std::cout << coeff;
+        
+        if (!indices.empty()) {
+            std::cout << " * ";
+            for (size_t i = 0; i < indices.size(); ++i) {
+                std::cout << "e^" << indices[i];
+                if (i != indices.size() - 1)
+                    std::cout << " ∧ ";
+            }
+        }
+        if ( term == (--terms.end() ) ){
+            std::cout << "." << std::endl;
+            break;
+        }
+        std::cout << " + ";
+    }
+}
+

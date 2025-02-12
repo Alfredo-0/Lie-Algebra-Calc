@@ -129,53 +129,53 @@ LIE-ALG/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/build
 .PHONY : LIE-ALG/fast
 
-DifferentialForm.o: DifferentialForm.cpp.o
-.PHONY : DifferentialForm.o
+src/DifferentialForm.o: src/DifferentialForm.cpp.o
+.PHONY : src/DifferentialForm.o
 
 # target to build an object file
-DifferentialForm.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/DifferentialForm.cpp.o
-.PHONY : DifferentialForm.cpp.o
+src/DifferentialForm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/src/DifferentialForm.cpp.o
+.PHONY : src/DifferentialForm.cpp.o
 
-DifferentialForm.i: DifferentialForm.cpp.i
-.PHONY : DifferentialForm.i
+src/DifferentialForm.i: src/DifferentialForm.cpp.i
+.PHONY : src/DifferentialForm.i
 
 # target to preprocess a source file
-DifferentialForm.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/DifferentialForm.cpp.i
-.PHONY : DifferentialForm.cpp.i
+src/DifferentialForm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/src/DifferentialForm.cpp.i
+.PHONY : src/DifferentialForm.cpp.i
 
-DifferentialForm.s: DifferentialForm.cpp.s
-.PHONY : DifferentialForm.s
+src/DifferentialForm.s: src/DifferentialForm.cpp.s
+.PHONY : src/DifferentialForm.s
 
 # target to generate assembly for a file
-DifferentialForm.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/DifferentialForm.cpp.s
-.PHONY : DifferentialForm.cpp.s
+src/DifferentialForm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/src/DifferentialForm.cpp.s
+.PHONY : src/DifferentialForm.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIE-ALG.dir/build.make CMakeFiles/LIE-ALG.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -186,12 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LIE-ALG"
-	@echo "... DifferentialForm.o"
-	@echo "... DifferentialForm.i"
-	@echo "... DifferentialForm.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/DifferentialForm.o"
+	@echo "... src/DifferentialForm.i"
+	@echo "... src/DifferentialForm.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
