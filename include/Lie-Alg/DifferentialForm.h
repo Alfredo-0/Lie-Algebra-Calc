@@ -20,12 +20,27 @@ public:
 
     ~DifferentialForm() {}
 
-    // Add a term given a sorted basis vector and its coefficient.
+    int getDegree() const {
+        if (terms.empty())
+            return 0; // or you could throw an exception if appropriate
+        return terms.begin()->first.size();
+    }
+
     void addTerm(const std::vector<int>& indices, double coeff) {
         std::vector<int> sortedIndices = indices;
         std::sort(sortedIndices.begin(), sortedIndices.end());
 
         terms[sortedIndices] += coeff;
+    }
+
+    bool checkZero(){
+        bool check = true;
+
+        for (const auto& term : this -> terms) {
+            if (term.second != 0)
+                return false;
+        }
+        return check;
     }
 
     DifferentialForm wedge(const DifferentialForm& other) const;
@@ -34,60 +49,7 @@ public:
     
     void print() const;
 
-    bool checkZero(){
-        double total = 0;
-        bool check = true;
-
-        for (const auto& term : this -> terms) {
-            if (term.second != 0)
-                return false;
-        }
-
-        return check;
-    }
-
-    std::string toLatexString() const {
-        std::stringstream ss;
-        //ss << "$";  // Start LaTeX math mode
-        
-        bool firstTerm = true;
-        // Loop over each term in the differential form.
-        for (const auto& term : terms) {
-            double coeff = term.second;
-            const std::vector<int>& indices = term.first;
-            
-            if (!firstTerm) {
-                ss << " + ";
-            }
-            
-            // Print the coefficient.
-            if(coeff<0)
-                ss << '(' << coeff << ')';
-            else if (coeff != 1)
-                ss << coeff;
-            
-            // If there are basis elements, print them in the form e^{i1} \wedge e^{i2} \wedge ...
-            if (!indices.empty()) {
-                //ss << " \\cdot ";
-                std::string index = " ";
-                for (size_t i = 0; i < indices.size(); ++i) {
-                    
-                    index += std::to_string(indices[i]);
-                    
-                    //ss << "e^{" << indices[i] << "}";
-                    //if (i != indices.size() - 1) {
-                    //    ss << " \\wedge ";
-                    //}
-                }
-                ss << "e^{"<< index << "}";
-            }
-            
-            firstTerm = false;
-        }
-        //ss << "$";  // End LaTeX math mode
-        
-        return ss.str();
-    }
+    std::string toLatexString() const;
 
 };
 

@@ -1,8 +1,9 @@
 // DifferentialForm.cpp
 #include "Lie-Alg/LieAlgebra.h"
+#include <string>
 
 static int permutationSign(const std::vector<int>& original, const std::vector<int>& sorted) {
-    // A simple (but not optimal) method: compute the number of transpositions
+
     int sign = 1;
     std::vector<int> temp = original;
     for (size_t i = 0; i < temp.size(); ++i) {
@@ -17,29 +18,26 @@ static int permutationSign(const std::vector<int>& original, const std::vector<i
 DifferentialForm DifferentialForm::wedge(const DifferentialForm& other) const {
     DifferentialForm result;
     
-    // Loop over terms in this form
     for (auto& term1 : this->terms) {
         const std::vector<int>& indices1 = term1.first;
         double coeff1 = term1.second;
         
-        // Loop over terms in the other form
         for (auto& term2 : other.terms) {
             const std::vector<int>& indices2 = term2.first;
             double coeff2 = term2.second;
             
-            // Check if indices are disjoint
             std::vector<int> combined = indices1;
             combined.insert(combined.end(), indices2.begin(), indices2.end());
             
-            // Check for duplicates:
             bool duplicate = false;
             std::map<int, int> count;
             for (int idx : combined) {
                 if (++count[idx] > 1) 
                     { duplicate = true; break; }
             }
+
             if (duplicate) 
-                continue; // wedge product is zero if any basis appears twice.
+                continue; // wedge product is zero.
             
             // Compute the sorted order and sign change.
             std::vector<int> sorted = combined;
@@ -56,11 +54,10 @@ DifferentialForm DifferentialForm::wedge(const DifferentialForm& other) const {
 
 DifferentialForm DifferentialForm::exteriorDerivative() const {
     DifferentialForm result;
-    LieAlgebra lie;  // You might want to pass this in instead.
+    LieAlgebra lie;  // Change.
     
-    // Loop over each term in the form
     for (const auto& term : this->terms) {
-        const std::vector<int>& indices = term.first;  // e.g. {i1, i2, ..., ik}
+        const std::vector<int>& indices = term.first;  
         double coeff = term.second;
         int k = indices.size();
         
@@ -125,3 +122,45 @@ void DifferentialForm::print() const {
     }
 }
 
+std::string DifferentialForm::toLatexString() const {
+    std::stringstream ss;
+    //ss << "$";  // Start LaTeX math mode
+    
+    bool firstTerm = true;
+    // Loop over each term in the differential form.
+    for (const auto& term : terms) {
+        double coeff = term.second;
+        const std::vector<int>& indices = term.first;
+        
+        if (!firstTerm) {
+            ss << " + ";
+        }
+        
+        // Print the coefficient.
+        if(coeff<0)
+            ss << '(' << coeff << ')';
+        else if (coeff != 1)
+            ss << coeff;
+        
+        // If there are basis elements, print them in the form e^{i1} \wedge e^{i2} \wedge ...
+        if (!indices.empty()) {
+            //ss << " \\cdot ";
+            std::string index = " ";
+            for (size_t i = 0; i < indices.size(); ++i) {
+                
+                index += std::to_string(indices[i]);
+                
+                //ss << "e^{" << indices[i] << "}";
+                //if (i != indices.size() - 1) {
+                //    ss << " \\wedge ";
+                //}
+            }
+            ss << "e^{"<< index << "}";
+        }
+        
+        firstTerm = false;
+    }
+    //ss << "$";  // End LaTeX math mode
+    
+    return ss.str();
+}

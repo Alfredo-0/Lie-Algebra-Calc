@@ -26,7 +26,7 @@ int main() {
                     std::string dlatexString = dform.toLatexString();
 
                     outfile << "$d("<<latexString<<")  = " << dlatexString << "$\n\n";
-
+                    std::cout<<form.getDegree()<<" "<<dform.getDegree()<<"\n";
                     //form.print();
                     //dform.print();
                 }
